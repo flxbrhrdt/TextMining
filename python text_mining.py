@@ -27,9 +27,9 @@ def word_counter(text):
 
     >>>
     """
-    WORD = re.compile(r'\w+')
+    word = re.compile(r'\w+')
     text = text_preprocessing(text)
-    words = WORD.findall(text)
+    words = word.findall(text)
     wordcount = Counter(words)
     return wordcount
 
@@ -103,15 +103,12 @@ def Text_similarity(*texts):
 
 
 
+def final_function():
+    """sum the program up and uses every .txt file in the folder """
+    from os import listdir
+    a = listdir()
+    a = tuple(f for f in a if ".txt" in f)
+    return Text_similarity(*a)
 
 
-text_1 = 'Great Expectations by Dickens.txt'
-text_2 = 'A tale of two cities by Dickens.txt'
-text_3 = 'Christmas Carol by Dickens.txt'
-text_4 = 'Platos Republic by Plato.txt'
-text_5 = 'Crito by Plato.txt'
-text_6 = 'Metarmophosis by Kafka.txt'
-text_7 = 'Moby Dick by Melville.txt'
-
-
-Text_similarity(text_1, text_2, text_3, text_4, text_5, text_6, text_7)
+final_function()
